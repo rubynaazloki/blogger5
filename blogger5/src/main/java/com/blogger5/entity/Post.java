@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "posts",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
-)
+@Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,12 +15,12 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Column(name = "title", nullable = false)
-    String title;
+    private String title;
     @Column(name = "description",nullable = false)
-    String description;
+    private String description;
     @Column(name = "content", nullable = false)
-    String content;
+    private String content;
 
 }

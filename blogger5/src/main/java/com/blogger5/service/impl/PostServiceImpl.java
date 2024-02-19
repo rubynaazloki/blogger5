@@ -30,4 +30,11 @@ public class PostServiceImpl implements PostService {
 
         return dto;
     }
+
+    @Override
+    public void deletePost(long id) {
+        postRepository.deleteById(id);
+
+    }
+
 }

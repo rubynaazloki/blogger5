@@ -1,10 +1,13 @@
 package com.blogger5.entity;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "posts", uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})})
@@ -22,5 +25,8 @@ public class Post {
     private String description;
     @Column(name = "content", nullable = false)
     private String content;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
 }
